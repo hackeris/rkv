@@ -22,20 +22,8 @@
 
 #include "error.h"
 #include "task.hpp"
+#include "loop.hpp"
 
-extern int timer_fd;
-extern int main_loop_epoll;
-
-void init_timer_fd();
-
-void init_timer();
-
-void init_timer_fd();
-
-int schedule_next_timer();
-
-void timer_loop();
-
-void handle_timer_event(epoll_event *ev);
+extern event_loop loop;
 
 task<int> co_sleep(int millsec);

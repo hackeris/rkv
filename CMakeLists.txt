@@ -4,6 +4,6 @@ project(rkv)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++2a -fcoroutines")
 
-add_executable(rkv main.cpp start.cpp task.cpp epoll.cpp timer.cpp)
+add_executable(rkv main.cpp start.cpp task.cpp timer.cpp loop.cpp)
 
 target_link_libraries(rkv pthread)

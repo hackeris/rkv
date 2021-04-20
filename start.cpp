@@ -24,18 +24,20 @@
 #include <coroutine>
 #include <functional>
 
-#include "epoll.h"
+#include "loop.hpp"
 #include "task.hpp"
+
+event_loop loop;
 
 extern task<int> co_main(int argc, char **argv);
 
 int main(int argc, char **argv)
 {
-  init_main_loop();
+  loop.init();
 
   task<int> t = co_main(argc, argv);
 
-  run_main_loop();
+  loop.run();
 
   return t.result();
 }
