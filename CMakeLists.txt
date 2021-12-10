@@ -1,9 +1,11 @@
-cmake_minimum_required(VERSION 3.16)
+﻿cmake_minimum_required (VERSION 3.8)
 
-project(rkv)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_C_COMPILER /usr/bin/gcc-10)
+set(CMAKE_CXX_COMPILER /usr/bin/g++-10)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++2a -fcoroutines")
+project ("rkv")
 
-add_executable(rkv main.cpp start.cpp task.cpp timer.cpp loop.cpp)
+add_compile_options(-fcoroutines)
 
-target_link_libraries(rkv pthread)
+add_executable (rkv "rkv.cpp" )
